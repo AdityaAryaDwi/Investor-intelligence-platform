@@ -21,3 +21,14 @@ create table if not exists portfolio_positions(
     notes text
 );
 
+create table if not exists fundamentals(
+    id serial primary key,
+    symbol varchar(10) not null,
+    pe numeric,
+    roe numeric,
+    eps_growth numeric,
+    de_ratio numeric,
+    profit_growth numeric,
+    last_updated timestamp default now(),
+    unique(symbol)
+);
